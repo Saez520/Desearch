@@ -1,0 +1,7 @@
+
+
+# Graphify outputs and local state
+graphify-out/
+
+# FlowTask/OpenCode installation (not part of the product)
+.opencode/
