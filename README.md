@@ -9,6 +9,7 @@ desearch/
 ├── README.md
 ├── agentes/
 │   ├── desearch.md
+│   ├── modo-aprendizaje.md
 │   ├── validador-dr.md
 │   └── critico.md
 └── resultados/
@@ -21,6 +22,7 @@ desearch/
 | Archivo | Rol previsto | Estado |
 |---|---|---|
 | `agentes/desearch.md` | Entrada común (agente conversacional principal) | Entrada común — modo investigación definido (CA-002) |
+| `agentes/modo-aprendizaje.md` | Skill condicional (modo aprendizaje del Principal) | Fuente de verdad de la skill — comportamiento definido en este CA |
 | `agentes/validador-dr.md` | Validador de suficiencia (DR) | Lugar reservado — comportamiento en CAs posteriores |
 | `agentes/critico.md` | Crítico de cuestionamiento | Lugar reservado — comportamiento en CAs posteriores |
 
@@ -33,7 +35,7 @@ Cada tipo de resultado tiene una ubicación predeterminada:
 | Registro de investigación | `desearch/resultados/investigaciones/` |
 | Conclusión de aprendizaje | `desearch/resultados/conclusiones-aprendizaje/` |
 
-El formato interno del registro de investigación y la mecánica del contador de evaluación de suficiencia (disparo previo a la sexta consulta acumulada) se definen en el comportamiento del Principal (`agentes/desearch.md`).
+El formato interno del registro de investigación y la mecánica del contador de evaluación de suficiencia (disparo previo a la sexta consulta acumulada) se definen en el comportamiento del Principal (`agentes/desearch.md`). El registro de aprendizaje, separado del de investigación, se escribe en `resultados/conclusiones-aprendizaje/` desde la skill `modo-aprendizaje` que el Principal carga solo por pedido explícito; ambos registros persisten como archivos independientes.
 
 ## Carpeta destino alternativa (contrato)
 
