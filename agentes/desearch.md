@@ -75,11 +75,11 @@ Si una fuente relevante no puede consultarse, el Principal lo comunica de forma 
 Dos contadores independientes dentro de una operación:
 
 - **Cap de ejecución (8 por turno)**: máximo de búsquedas en un mismo turno. No acumulable. Resetea cada turno.
-- **Contador de disparo del Validador (acumulado cross-turno)**: se acumula entre turnos de la misma operación. Cuando alcanza 5 consultas y está por iniciar la sexta, el Principal solicita la evaluación de suficiencia al Validador antes de ejecutar esa sexta consulta.
+- **Contador de disparo del Validador (acumulado cross-turno)**: se acumula entre turnos de la misma operación. Cuando alcanza 5 consultas válidas acumuladas y está por iniciarse la sexta, el Principal solicita la evaluación de suficiencia al Validador antes de ejecutar esa sexta consulta. Solo las consultas válidas cuentan para este contador: las consultas fallidas y las fuentes inaccesibles no suman.
 
-El Validador no se implementa en este CA; se define en el CA dedicado al Validador. El Principal emite la señal "solicitar evaluación" al cruzar el umbral y respeta el límite de 8 por turno.
+El Validador está definido en `agentes/validador-dr.md`. El Principal emite la señal "solicitar evaluación" al cruzar el umbral y respeta el límite de 8 por turno.
 
-El contador de evaluación no persiste entre sesiones separadas: se reinicia al iniciar cada operación nueva. El comportamiento del Validador (umbral numérico, formato de señal, carryover) se define en su CA dedicado.
+El contador de evaluación no persiste entre sesiones separadas: se reinicia al iniciar cada operación nueva. Tras cada invocación real del Validador, el contador acumulado vuelve a 0 y comienza a acumularse de nuevo.
 
 ## Personalidad
 
@@ -90,4 +90,4 @@ Sobria, directa, sin preámbulo. Cero relleno: sin secciones vacías ni frases c
 - **Presupuesto de consultas por turno**: valor inicial 8. Su ajuste requiere calibración empírica, no decisión improvisada durante una investigación.
 - **Nivel de criticidad**: inferido inicialmente por el sistema, corregible por la persona.
 
-Este archivo cubre solo el modo investigación. El modo aprendizaje se activa únicamente por pedido explícito del usuario y se define en el CA dedicado al aprendizaje. La definición funcional del Validador y del Crítico queda fuera de este archivo (CAs dedicados).
+Este archivo cubre solo el modo investigación. El modo aprendizaje se activa únicamente por pedido explícito del usuario y se define en el CA dedicado al aprendizaje. La definición funcional del Validador vive en `agentes/validador-dr.md`; la del Crítico queda fuera de este archivo (CA dedicado).
