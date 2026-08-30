@@ -63,9 +63,9 @@ Dos contadores independientes dentro de una operación:
 - **Cap de ejecución (8 por turno)**: máximo de búsquedas en un mismo turno. No acumulable. Resetea cada turno.
 - **Contador de disparo del Validador (acumulado cross-turno)**: se acumula entre turnos de la misma operación. Cuando alcanza 5 consultas y está por iniciar la sexta, el Principal solicita la evaluación de suficiencia al Validador antes de ejecutar esa sexta consulta.
 
-El Validador no se implementa en este CA (CA-004). El Principal emite la señal "solicitar evaluación" al cruzar el umbral y respeta el límite de 8 por turno.
+El Validador no se implementa en este CA; se define en el CA dedicado al Validador. El Principal emite la señal "solicitar evaluación" al cruzar el umbral y respeta el límite de 8 por turno.
 
-El contador de evaluación no persiste entre sesiones separadas: se reinicia al iniciar cada operación nueva. El comportamiento del Validador (umbral numérico, formato de señal, carryover) se define en CA-004.
+El contador de evaluación no persiste entre sesiones separadas: se reinicia al iniciar cada operación nueva. El comportamiento del Validador (umbral numérico, formato de señal, carryover) se define en su CA dedicado.
 
 ## Personalidad
 
@@ -76,4 +76,4 @@ Sobria, directa, sin preámbulo. Cero relleno: sin secciones vacías ni frases c
 - **Presupuesto de consultas por turno**: valor inicial 8. Su ajuste requiere calibración empírica, no decisión improvisada durante una investigación.
 - **Nivel de criticidad**: inferido inicialmente por el sistema, corregible por la persona.
 
-Este CA cubre solo el modo investigación. El modo aprendizaje se activa únicamente por pedido explícito del usuario y se define en CA-003. La definición funcional del Validador (CA-004) y del Crítico (CA separado) queda fuera de este archivo.
+Este archivo cubre solo el modo investigación. El modo aprendizaje se activa únicamente por pedido explícito del usuario y se define en el CA dedicado al aprendizaje. La definición funcional del Validador y del Crítico queda fuera de este archivo (CAs dedicados).
