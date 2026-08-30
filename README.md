@@ -20,7 +20,7 @@ desearch/
 
 | Archivo | Rol previsto | Estado |
 |---|---|---|
-| `agentes/desearch.md` | Entrada común (agente conversacional principal) | Lugar reservado — comportamiento en CAs posteriores |
+| `agentes/desearch.md` | Entrada común (agente conversacional principal) | Entrada común — modo investigación definido (CA-002) |
 | `agentes/validador-dr.md` | Validador de suficiencia (DR) | Lugar reservado — comportamiento en CAs posteriores |
 | `agentes/critico.md` | Crítico de cuestionamiento | Lugar reservado — comportamiento en CAs posteriores |
 
@@ -33,7 +33,7 @@ Cada tipo de resultado tiene una ubicación predeterminada:
 | Registro de investigación | `desearch/resultados/investigaciones/` |
 | Conclusión de aprendizaje | `desearch/resultados/conclusiones-aprendizaje/` |
 
-El formato interno del registro de investigación se define en el CA dedicado al Principal en modo investigación (CA-002).
+El formato interno del registro de investigación y la mecánica del contador de evaluación de suficiencia (disparo previo a la sexta consulta acumulada) se definen en el comportamiento del Principal (`agentes/desearch.md`).
 
 ## Carpeta destino alternativa (contrato)
 
