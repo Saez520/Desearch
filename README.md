@@ -24,7 +24,7 @@ desearch/
 | `agentes/desearch.md` | Entrada común (agente conversacional principal) | Entrada común — modo investigación definido (CA-002) |
 | `agentes/modo-aprendizaje.md` | Skill condicional (modo aprendizaje del Principal) | Fuente de verdad de la skill — comportamiento definido en este CA |
 | `agentes/validador-dr.md` | Validador de suficiencia (DR) | Comportamiento definido en CA-004 |
-| `agentes/critico.md` | Crítico de cuestionamiento | Lugar reservado — comportamiento en CAs posteriores |
+| `agentes/critico.md` | Crítico de cuestionamiento | Comportamiento definido en este CA |
 
 ## Destinos de resultados
 

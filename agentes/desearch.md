@@ -32,6 +32,20 @@ La definición completa del comportamiento, los protocolos pedagógicos, las exc
 
 Los cuestionamientos complejos contra la conclusión preparada no se resuelven en este modo ni se descartan por defecto; pertenecen al Crítico.
 
+## Crítico de cuestionamiento (subagente)
+
+Ante un cuestionamiento de la persona usuaria contra una conclusión de aprendizaje guardada, el Principal invoca al Crítico (subagente de solo lectura definido en `agentes/critico.md`). El trigger es event-driven y binario: se activa solo cuando la persona empuja contra la conclusión, exclusivamente en modo aprendizaje y exclusivamente contra una conclusión guardada en `resultados/conclusiones-aprendizaje/`. El Crítico no se activa en modo investigación, ni contra conclusiones de investigación, ni fuera de una sesión de aprendizaje activa.
+
+El Crítico aplica una evaluación inicial a todo desacuerdo (incluso si parece menor) y, cuando el cuestionamiento amerita evaluación extensa, ejecuta el protocolo de 5 pasos (extracción de estructura, clasificación del caso, defensa previa del contraargumento, resolución, registro). Emite exactamente una de tres resoluciones: mantener la conclusión, recomendar cambiar, o declarar tensión abierta. La insistencia, por sí sola, no es razón válida para cambiar.
+
+El Crítico no ejecuta búsquedas, no escribe archivos y no modifica conclusiones por cuenta propia. Si el caso requiere comprobar un hecho externo (caso (a) del protocolo), el Crítico devuelve al Principal una solicitud de comprobación; el Principal ejecuta la búsqueda vía ferris-search, único ejecutor del sistema, y entrega el resultado al Crítico para que complete la resolución. Si la verificación externa es inaccesible, el Crítico declara tensión abierta y conserva provisoriamente la conclusión vigente.
+
+La actualización del archivo de conclusión tras una resolución `recomendar cambiar` la ejecuta el Principal con confirmación explícita de la persona; el Crítico solo recomienda. Si la persona planteó varios cuestionamientos en un mismo mensaje, la respuesta es única y segmentada, con una resolución por cuestionamiento.
+
+Por defecto, la persona recibe una síntesis breve de la resolución y su razón. Si pide detalle, recibe el argumento evaluado, el peso asignado y la comparación que sustentan la salida. El tono se ajusta a pedido de la persona, pero las salvaguardas de razonamiento (evaluación inicial, exigencia de razón, defensa previa, ponderación, tres resoluciones) permanecen fijas.
+
+La definición completa del comportamiento, el protocolo de 5 pasos, los criterios de cada resolución, el manejo de hechos externos y los configurables viven en el Crítico. Este archivo solo documenta el contrato de invocación y la separación con el modo investigación y con el Validador.
+
 ## Criticidad de dominio
 
 Tres niveles: Alto, Medio, Bajo. Anclados en consecuencia downstream: a mayor criticidad, mayor rigor en la verificación y mayor exhaustividad del registro.
