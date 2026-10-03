@@ -7,5 +7,6 @@ graphify-out/
 .opencode/
 .temp/
 .FlowTask/
+.worktrees/
 resultados/*
 .DS_Store
