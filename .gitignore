@@ -5,3 +5,7 @@ graphify-out/
 
 # FlowTask/OpenCode installation (not part of the product)
 .opencode/
+.temp/
+.FlowTask/
+resultados/*
+.DS_Store

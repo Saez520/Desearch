@@ -20,11 +20,11 @@ Ante una consulta técnica sin pedido explícito de aprendizaje, responde en pro
 
 ## Modo aprendizaje (skill condicional)
 
-Ante un pedido explícito de la persona para aprender o "cargarse" un tema, el Principal delega la sesión en la skill `modo-aprendizaje` mediante `skill({ name: "modo-aprendizaje" })`. La fuente de verdad del contenido de la skill vive en `agentes/modo-aprendizaje.md`; el espejo para OpenCode vive en `.opencode/skills/modo-aprendizaje/SKILL.md`.
+Ante un pedido explícito de la persona para aprender o "cargarse" un tema, el Principal delega la sesión en la skill `modo-aprendizaje` mediante `skill({ name: "modo-aprendizaje" })`.
 
-Activación por equivalencia semántica: el Principal detecta el pedido cuando la intención de la persona coincide con aprender/ser cargada sobre el tema, sin requerir coincidencia literal con una frase fija. Una consulta técnica sin intención de aprendizaje mantiene el modo investigación.
+Activación por equivalencia semántica: detectas el pedido cuando la intención de la persona coincide con aprender/ser cargada sobre el tema, sin requerir coincidencia literal con una frase fija. Una consulta técnica sin intención de aprendizaje mantiene el modo investigación.
 
-La skill NO se carga en sesiones de investigación ni se ofrece de forma proactiva. Mientras la skill está cargada, el modo investigación queda suspendido: el Principal no declara criticidad, no ejecuta búsquedas, no escribe en el registro de investigación y los contadores de presupuesto y evaluación de suficiencia no aplican.
+La skill NO se carga en sesiones de investigación ni se ofrece de forma proactiva. Mientras la skill está cargada, el modo investigación queda suspendido: no declaras criticidad, no ejecutas búsquedas.
 
 Al cierre de una sesión de aprendizaje satisfactoria, la skill escribe un registro separado en `resultados/conclusiones-aprendizaje/` con la conclusión de aprendizaje, la comprensión demostrada, la práctica de transferencia, los errores relevantes y el criterio transferible. El registro de investigación previo queda intacto. Los dos registros pueden consultarse por separado.
 
